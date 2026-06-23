@@ -1,0 +1,25 @@
+# This is a personal abstract that was in IPDPS HCW 2026
+
+GPUs are increasingly used in supercomputers and
+data centers, but programming them efficiently remains challeng
+ing due to the complexity of memory management across host and
+device. NVIDIA’s Unified Virtual Memory (UVM) driver reduces
+this burden by automatically migrating data between host and de
+vice, but it relies on vendor-specific API calls, limiting portability
+and adoption of legacy CPU code. Linux Heterogeneous Memory
+Management (HMM) integrates with UVM to provide a unified
+virtual address space, removing the need for vendor-specific
+APIs. Due to this, HMM enables easier programming, improved
+portability, and smoother transitions from CPU to heterogeneous
+code for legacy programs, improving programmer productivity.
+Despite its benefits, HMM can be up to ∼2.5× slower than UVM
+on common benchmarks, creating a significant performance
+barrier for adoption. In this work, we analyze the UVM-HMM
+data migration path in detail, highlighting the additional com
+plexity introduced when the driver must translate between UVM
+and HMM data structures and coordinate migrations between
+host and device. More broadly, this work highlights the trade
+offs between programmability, portability, and performance in
+heterogeneous memory management systems. We implement and
+evaluate optimizations that address both issues, achieving a 21%
+49.5% improvement over upstream HMM.
