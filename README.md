@@ -72,3 +72,7 @@ lexile score:   15
  predicted venue: PPoPP / ISC / HPDC (solid A-tier)
 =========================================
 ```
+
+## Contribution
+
+If anyone gets any high scores on analysis mode with real published abstracts pls let me know, it's kinda hard to get a high score right now. 
