@@ -1,0 +1,1 @@
+# objective-abstract-quality
