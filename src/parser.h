@@ -2,6 +2,9 @@
 #define PARSER_H
 
 #include <stddef.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 
 /*
  * Represents an abstract loaded from disk.

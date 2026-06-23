@@ -1,0 +1,32 @@
+# My old advisors paper
+#   Title: In-Depth Analyses of Unified Virtual Memory System for GPU Accelerated Computing
+#   Authors: Tyler Allen, Rong Ge 
+
+The abstraction of a shared memory space over separate CPU and
+GPUmemory domains has eased the burden of portability for many
+HPC codebases. However, users pay for the ease of use provided
+by systems-managed memory space with a moderate-to-high per
+formance overhead. NVIDIA Unified Virtual Memory (UVM) is
+presently the primary real-world implementation of such abstrac
+tion and offers a functionally equivalent testbed for a novel in-depth
+performance study for both UVM and future Linux Heterogeneous
+Memory Management (HMM) compatible systems. The continued
+advocation for UVM and HMM motivates the improvement of the
+underlying system. We focus on a UVM-based system and investi
+gate the root causes of the UVM overhead, which is a non-trivial
+task due to the complex interactions of multiple hardware and
+software constituents and the requirement of targeted analysis
+methodology.
+In this paper, we take a deep dive into the UVM system archi
+tecture and the internal behaviors of page fault generation and
+servicing. We reveal specific GPU hardware limitations using tar
+geted benchmarks to uncover driver functionality as a real-time
+system when processing the resultant workload. Wefurther provide
+a quantitative evaluation of fault handling for various applications
+under different scenarios, including prefetching and oversubscrip
+tion. We find that the driver workload is dependent on the interac
+tions among application access patterns, GPU hardware constraints,
+and Host OS components. We determine that the cost of host OS
+components is significant and present across implementations, war
+ranting close attention. This study serves as a proxy for future
+shared memory systems such as those that interface with HMM.

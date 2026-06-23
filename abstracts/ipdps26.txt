@@ -1,0 +1,35 @@
+# This was my favorite paper from IPDPS26
+#   Title: One Memory-Many Paths: Early Experiences with Allocation and Data Copy Strategies on MI300A
+#   Authors: Goutham Kalikrishna Reddy Kuncham, Siyuan Zhang, Dhabaleswar K. Panda
+
+The convergence of CPU and GPU memory archi
+tectures in heterogeneous systems fundamentally reshapes the
+landscape of High-Performance Computing (HPC) and Artificial
+Intelligence (AI) workloads. The AMD MI300A represents a
+significant step forward as the first data center-class Accelerated
+Processing Unit (APU) featuring a unified HBM3 memory pool
+accessible by both CPU and GPU, presenting new opportunities
+to eliminate traditional CPU–GPU data movement bottlenecks.
+Despite the advantages of shared memory pools, this architectural
+shift introduces new complexities in selecting optimal memory
+allocation strategies and data transfer mechanisms. In this paper,
+we conduct a comprehensive performance evaluation of memory
+allocation and data transfer methods on the AMD MI300A APU.
+We systematically characterize bandwidth and latency across
+a diverse set of memory allocation schemes and data copy
+implementations, examining performance over a broad range of
+message sizes and communication scenarios, including intra-APU,
+inter-APU, and inter-node transfers. Our analysis yields empirical
+insights to guide efficient data movement on unified-memory
+architectures and provides actionable guidelines for MPI library
+developers aiming to design efficient communication runtimes tai
+lored to the MI300A APU architecture. Building on these insights,
+we develop and demonstrate a memory-aware adaptive prototype
+scheme that selects data transfer methods based on message size
+and buffer type. This prototype achieves practical performance
+improvements in collective communication, realizing up to 60%
+improvement for Alltoall operations and up to 80% improvement
+for Allreduce at small message sizes, along with up to 27% gains
+in real-world application workloads. The results and guidelines
+presented herein offer valuable direction for leveraging modern
+APUs to accelerate next-generation HPC and AI systems.

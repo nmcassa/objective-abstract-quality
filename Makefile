@@ -1,6 +1,6 @@
 CC      := gcc
 CFLAGS  := -std=c11 -Wall -Wextra -Wpedantic -O2
-SRC     := src/main.c src/parser.c
+SRC     := src/main.c src/parser.c src/analysis.c
 OBJ     := $(SRC:.c=.o)
 BIN     := oaq
 
