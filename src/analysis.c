@@ -103,3 +103,28 @@ int lexile_score(const Abstract *a) {
 
     return (int)ari;
 }
+
+int run_analysis(const Abstract *a) {
+    printf("[analysis mode] loaded abstract (%zu bytes)\n", a->length);
+
+    printf("-- acronyms --\n");
+    int acr = acronym_score(a);
+    printf("acronym score:  %d\n\n", acr);
+
+    printf("-- symbols & numerics --\n");
+    int sym = symbol_score(a);
+    printf("symbol score:   %d\n\n", sym);
+
+    printf("-- lexile (ARI) --\n");
+    int lex = lexile_score(a);
+    printf("lexile score:   %d\n\n", lex);
+
+    int total = acr + sym + lex;
+
+    printf("=========================================\n");
+    printf(" objective abstract quality score: %d\n", total);
+    printf(" predicted venue: %s\n", conference_tier(total));
+    printf("=========================================\n");
+
+    return 0;
+}

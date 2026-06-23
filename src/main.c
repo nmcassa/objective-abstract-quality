@@ -1,6 +1,7 @@
 #include "parser.h"
-//#include "reviewer.h"
+#include "reviewer.h"
 #include "analysis.h"
+#include "submission.h"
 
 typedef enum {
     MODE_UNKNOWN,
@@ -26,38 +27,6 @@ static Mode parse_mode(const char *arg) {
     if (strcmp(arg, "submission") == 0) return MODE_SUBMISSION;
     if (strcmp(arg, "analysis")   == 0) return MODE_ANALYSIS;
     return MODE_UNKNOWN;
-}
-
-/* Stubs for now; we'll flesh these out in the next steps. */
-static int run_submission(const Abstract *a) {
-    printf("[submission mode] loaded abstract (%zu bytes)\n", a->length);
-    printf("notifying four reviewers... (not yet implemented)\n");
-    return 0;
-}
-
-static int run_analysis(const Abstract *a) {
-    printf("[analysis mode] loaded abstract (%zu bytes)\n", a->length);
-
-    printf("-- acronyms --\n");
-    int acr = acronym_score(a);
-    printf("acronym score:  %d\n\n", acr);
-
-    printf("-- symbols & numerics --\n");
-    int sym = symbol_score(a);
-    printf("symbol score:   %d\n\n", sym);
-
-    printf("-- lexile (ARI) --\n");
-    int lex = lexile_score(a);
-    printf("lexile score:   %d\n\n", lex);
-
-    int total = acr + sym + lex;
-
-    printf("=========================================\n");
-    printf(" objective abstract quality score: %d\n", total);
-    printf(" predicted venue: %s\n", conference_tier(total));
-    printf("=========================================\n");
-
-    return 0;
 }
 
 int main(int argc, char **argv) {
