@@ -30,6 +30,23 @@ static Reader pick_reader(unsigned long long h) {
     return READER_NOBODY;
 }
 
+static int accept_percent(Reader reader, long long h_pct) {
+    if (reader == READER_REVIEWER)
+        return hash_range(h_pct, 1, 50);
+    else if (reader == READER_STUDENT)
+        return hash_range(h_pct, 35, 99);
+    return hash_range(h_pct, 1, 99);
+}
+
+static int confidence_reader(Reader reader, long long h_conf) {
+    if (reader == READER_REVIEWER)
+        return hash_range(h_conf, 4, 5);
+    else if (reader == READER_STUDENT)
+        return hash_range(h_conf, 1, 4);
+    else 
+        return hash_range(h_conf, 1, 5);
+}
+
 void reviewer_review(const char *reviewer_name,
                      const Abstract *a,
                      Review *out)
@@ -48,10 +65,10 @@ void reviewer_review(const char *reviewer_name,
     unsigned long long h_conf = fnv1a64("conf",   4, h_main);
     unsigned long long h_who  = fnv1a64("who",    3, h_main);
 
-    int accept_pct = hash_range(h_pct, 1, 99);
-    int coin       = hash_range(h_coin, 1, 100);
-    int confidence = hash_range(h_conf, 1, 5);
     Reader reader  = pick_reader(h_who);
+    int accept_pct = accept_percent(reader, h_pct);
+    int coin       = hash_range(h_coin, 1, 100);
+    int confidence = confidence_reader(reader, h_conf);
 
     out->name        = reviewer_name;
     out->reader      = reader;
