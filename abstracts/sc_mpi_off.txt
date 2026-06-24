@@ -1,0 +1,23 @@
+# new high score
+#   Title: DiOMP-Offloading: Toward Portable Distributed Heterogeneous OpenMP
+#   Authors: Baodi Shan, Mauricio Araya-Polo, and Barbara Chapman
+
+High-performance computing faces rising core counts, increasing
+heterogeneity, and growing memory bandwidth. These trends
+complicate programmability, portability, and scalability, while traditional
+ MPI + OpenMP struggles with distributed GPU memory and
+portable performance. We present DiOMP-Offloading, a framework
+unifying OpenMP target offloading with a Partitioned Global Ad
+dress Space (PGAS) model. Built on LLVM-OpenMP and GASNet
+EX, it centrally manages global memory and supports symmet
+ric/asymmetric GPU allocations, enabling remote put/get oper
+ations. DiOMP also integrates OMPCCL, a portable device-side
+collective layer that harmonizes allocation lifecycles and address
+translation across vendor backends. By eliminating separate MPI
++ X stacks and abstracting replicated device memory and communication 
+logic, DiOMP improves scalability and programmability.
+Experiments on large-scale NVIDIA A100, Grace Hopper, and AMD
+MI250X platforms show superior micro-benchmark and application
+performance, demonstrating that DiOMP-Offloading offers a more
+portable, scalable, and efficient path for heterogeneous supercom
+puting
